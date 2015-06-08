@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<base target="_blank">
+<title>Urban Change In Time</title>
+<link rel="icon" href="code/img/favicon.ico" type="image/x-icon">
+<link href='http://fonts.googleapis.com/css?family=Lato:300normal,400normal' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="code/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="code/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="code/css/styles.css">
+<script src="code/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="code/jquery-ui.min.js" type="text/javascript"></script>
+<script src="code/OpenLayers.js" type="text/javascript"></script>
+<script src="code/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body onload='initmap();'>
+<img src="code/img/logo.png" class="logo" alt="Logo">
+<div id="map_div"></div>
+<div id="slider_container">
+  <div id="slider"></div>
+</div>
+<div id="contents">
+  <div id="start" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1 col-md-offset-11 col-xs-1 col-xs-offset-11"> <a href="en.html" target="_self">EN</a> </div>
+        <div class="col-md-8 col-md-offset-2">
+          <h1>Urban Change In Time</h1>
+          <h4>Wie wurde Wien was es heute ist?<br>
+            Wie hat es sich über die Zeit hinweg verändert?</h4>
+        </div>
+        <div class="start-img"> <img src="code/img/start.jpg" class="fullimage" alt="Start" />
+          <button class="startbutton">&#9654;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="about" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>über</h1>
+          <p>Urban Change in Time (UCIT) zeigt zum ersten Mal im vollen Umfang die Entwicklung der Stadt Wien vom Jahre 1870 bis heute. Es lässt den Betrachter durch historische Karten Wiens aus verschiedenen Jahren in unterschiedlichen Maßstäben navigieren. Die Karten sind in Perioden unterteilt, abhängig vom vorhandenen Kartenmaterial. UCIT verwendet dafür nationale historische Karten welche vom <a href="http://www.bev.gv.at/" >Bundesamt für Eich- und Vermessungswesen (BEV)</a> zur Verfügung gestellt wurden.<br><br>
+            Ursprünglich ist UCIT ein Teil einer Doktoratsarbeit an der Technischen Universität Wien, <a href="http://raum.tuwien.ac.at/">Abteilung für Raumplanung</a>, in Kooperation mit der Abteilung (<a href="http://www.inso.tuwien.ac.at/">INSO</a>) der Fakultät Informatik. Das Projekt wurde mit dem Stipendium <a href="http://www.netidee.at/">netidee der Internet Foundation of Austria </a>finanziert.<br><br>
+            Das Ziel von UCIT ist es, ein größeres Bewusstsein für die immense Bedeutung der Vergangenheit für das heutige Stadtbild zu prägen und gleichzeitig eine Reflektion über eine mögliche Zukunft desselben anzuregen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="maps" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>karten</h1>
+          <p>UCIT basiert auf Rasterkarten in den Maßstäben von 1:12.500, 1:25.000 und 1:50.000 in verschiedenen Kartenformaten, momentan beginnend mit dem Jahre 1870.<br><br>
+            Diese historischen Karten lagen meist nur in Papierform in verschiedenen Archiven vor. BEV hat diese Karten in digitaler Form und georeferenziert zur Verfügung gestellt.<br><br>
+          </p>
+        </div>
+      </div>
+    </div>
+    <img src="code/img/timeline.jpg" class="fullimage" alt="Timeline" />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <p><br><br>
+            Jede Karte wurde in Perioden mit einem Intervall von 10 Jahren kategorisiert, wenn dies möglich war. Das heißt nicht, dass eine Karte tatsächlich aus dem Jahre 1940 stammt wenn das Jahr 1940 angewählt wird. Es wird lediglich die Gruppe von Karten angezeigt welche möglichst nahe um das Jahr 1940 liegen. Es war keine einfache Aufgabe die Karten in ihre jeweiligen Zeitperioden zu gruppieren und diese zusammen zu bringen. Dies begann schon damit, dass gleiche Kartentypen zusammen gruppiert werden mussten um eine gewisse Uniformität zu wahren. Um die Darstellung für die Benutzer möglichst klar zu gestalten, wurden die Karten in einfach zu verstehende Jahresgruppen einsortiert.<br><br>
+            Leider waren nicht alle Karten in digitaler Form verfügbar. Daher musste mit dem vorhandenen Kartenmaterial gearbeitet werden. Sollte neues Kartenmaterial gefunden werden, würden wir dieses sehr gerne in das UCIT Projekt integrieren.<br>
+          </p>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+          <h3 style="margin-top:40px">Was zeigen die Jahre an?</h3>
+          <table class="table table-bordered" style="font-size: 12px !important;">
+            <thead>
+              <tr>
+                <th>Jahr</th>
+                <th>Überdeckung</th>
+                <th>Maßstab</th>
+                <th>Typ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1870</td>
+                <td>1872-1875</td>
+                <td>1:12.500</td>
+                <td>Dritte Landesaufnahme<br>Franzisco-Josephinische Landesaufnahme (1869-1887)</td>
+              </tr>
+              <tr>
+                <td>1900</td>
+                <td>1903-1915</td>
+                <td>1:25.000</td>
+                <td>Vierte Landesaufnahme<br>Präzisionsaufnahme (1896-1915)</td>
+              </tr>
+              <tr>
+                <td>1910</td>
+                <td>1907-1910</td>
+                <td>1:75.000</td>
+                <td>Spezialkarte (1872-1944)</td>
+              </tr>
+              <tr>
+                <td>1920</td>
+                <td>1915-1916</td>
+                <td>1:75.000</td>
+                <td>Spezialkarte (1872-1944)</td>
+              </tr>
+              <tr>
+                <td>1930</td>
+                <td>1936-1937</td>
+                <td>1:75.000</td>
+                <td>Spezialkarte (1872-1944)</td>
+              </tr>
+              <tr>
+                <td>1940</td>
+                <td>1946</td>
+                <td>1:50.000</td>
+                <td>OEK 50 Prov - Provisorische Ausgabe (1945-1970)</td>
+              </tr>
+              <tr>
+                <td>1950</td>
+                <td>1950-1955</td>
+                <td>1:50.000</td>
+                <td>OEK 50 Prov - Provisorische Ausgabe (1945-1970)</td>
+              </tr>
+              <tr>
+                <td>1955</td>
+                <td>1954</td>
+                <td>1:25.000</td>
+                <td>OEK25 Österreichische Karte (1923-1959)</td>
+              </tr>
+              <tr>
+                <td>1960</td>
+                <td>1959-1962</td>
+                <td>1:50.000</td>
+                <td>OEK50 Österreichische Karte</td>
+              </tr>
+              <tr>
+                <td>1970</td>
+                <td>1972-1973</td>
+                <td>1:50.000</td>
+                <td>OEK50 Österreichische Karte</td>
+              </tr>
+              <tr>
+                <td>1980</td>
+                <td>1979-1981</td>
+                <td>1:50.000</td>
+                <td>OEK50 Österreichische Karte</td>
+              </tr>
+              <tr>
+                <td>1990</td>
+                <td>1987-1988</td>
+                <td>1:50.000</td>
+                <td>OEK50 Österreichische Karte</td>
+              </tr>
+              <tr>
+                <td>1995</td>
+                <td>1993-1995</td>
+                <td>1:50.000</td>
+                <td>OEK50 Österreichische Karte</td>
+              </tr>
+              <tr>
+                <td>2000</td>
+                <td>2000-2004</td>
+                <td>1:50.000</td>
+                <td>OEK50-UTM Österreichische Karte</td>
+              </tr>
+              <tr>
+                <td>2010</td>
+                <td>2007-2012</td>
+                <td>1:50.000</td>
+                <td>OEK50-UTM Österreichische Karte</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="makingof" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>die Entstehung von UCIT</h1>
+          <p>Das heutige digitale Zeitalter ermöglicht es interessante dynamische Visualisierungen zu erstellen. Die Grundidee hinter UCIT ist es das urbane Wachstum in einer einfachen und benutzerfreundlichen Art sichtbar zu machen.<br><br>
+            Um dieses Projekt umsetzen zu können brauchten wir zuerst historische Daten. Es wurde schnell klar, dass die benötigten Daten nur als kartographische Karten vorliegen. Die Reproduktion der existierenden Karten war aufgrund des Aufwands unrealistisch, deshalb wurden die originalen Karten im Pixelformat verwendet. Auch wenn dies nicht die beste Art ist, eine zeitliche Veränderung darzustellen, ist es im Moment die einzige Möglichkeit.<br><br>
+            Alle Karten, welche Wien und Umgebung abdecken, mussten zuerst digitalisiert werden. Das bedeutete sie einzuscannen und zu georeferenzieren. BEV hat diese Karten digital und georeferenziert zur Verfügung gestellt.<br><br>
+            Aufgrund von verschiedenen Kartentypen, Maßstäben sowie kartographischen Vorgaben und Schriftarten erscheinen die gleichen Orte ab einem gewissen Zeitpunkt oft unterschiedlich, auch wenn sich dort nichts geändert hat.<br><br>
+            Es soll festgehalten werden, dass das angezeigte Jahr nicht unbedingt die Karten aus diesem Jahr anzeigt. Die Karten wurden in Zeitperioden mit einem Intervall von 10 Jahren eingeteilt, mit einigen Ausnahmen wie 1870-1900, 1955 oder 1995. Eine detaillierte Information der angezeigten Karte wird man sich mit einem einfachen Klick anzeigen lassen können. Diese Funktion wird in einer späteren Version von UCIT verfügbar sein. <br><br>
+            UCIT verwendet momentan 152 Karten in verschiedenen Maßstäben.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="development" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>development</h1>
+          <p>Die verwendeten Karten sind als Rasterbilder (gescannt mit 300 dpi) verfügbar. Alle Karten kommen mit einer Projection Datei und einer <a href="http://en.wikipedia.org/wiki/World_file" >World-File</a>, zum Beispiel [map.jpeg], [map.prj] and [map.jgw].<br><br>
+            Jedes Kartenstück wird in das <a href="http://trac.osgeo.org/geotiff/" >GeoTIFF</a> Format umgewandelt. Hierzu wurde das <a href="http://qgis.org/" >QGIS</a> Programm verwendet, welches Open Source <a href="http://www.gdal.org" >GDAL Bibliotheken</a> benützt.<br><br>
+            Dieser Prozess hat es uns ermöglicht, die Daten in den <a href="http://www.geoserver.org" >GeoServer</a> zu integrieren. GeoServer kann mit einer Vielzahl von Datenformaten umgehen, unter anderem GeoTIFF, und ermöglicht es einfach existierende Daten mit kartographischen Web-Anwendungen zu verknüpfen. Um die kartographischen Daten im Web Browser darzustellen wird <a href="http://www.openlayers.org" >OpenLayers</a> verwendet.<br><br>
+            Pyramiden von Kacheln werden dann am Kartenserver mittels <a href="http://en.wikipedia.org/wiki/Web_Map_Service" >WMTS</a> erzeugt um die Darstellung der Karten performanter zu gestalten.<br><br>
+            Dieses Layout wurde mit <a href="http://www.getbootstrap.com" >Bootstrap</a> erstellt. Die Zeitleiste wurde basierend auf <a href="http://jqueryui.com" >jQuery-UI</a> erstellt. Es ermöglicht eine Navigation durch einfaches Klicken auf das Jahr oder durch Ziehen des Sliders.</p>
+          <img src="code/img/development.jpg" class="fullimage" alt="Development" /> </div>
+      </div>
+    </div>
+  </div>
+  <div id="copyright" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>copyright & data protection</h1>
+          <p> UCIT wird als Open Source Software unter der <a href="https://www.gnu.org/copyleft/gpl.html" >GNU GPLv3 Lizenz</a> publiziert. Der Source Code ist auf <a href="http://github.com/UrbanChangeInTime/UCIT" >GitHub</a> verfügbar.<br><br>
+            Das Copyright an den historischen Karten besitzt das Bundesamt für Eich- und Vermessungswesen (© BEV 2015 T2015/104155). UCIT hat die “Web-View” Lizenz für die verwendeten Karten erworben um diese in der Web Applikation darstellen zu dürfen.<br><br>
+            Nähere Informationen: <a href="http://www.bev.gv.at/pls/portal/docs/PAGE/BEV_PORTAL_CONTENT_ALLGEMEIN/0200_PRODUKTE/BESTELLFORMULARE/STANDARD_CHARGES_AND_LICENSING_CONDITIONS_2015.PDF" >Bundesamt für Eich- und Vermessungswesen  (BEV) STANDARDENTGELTE UND NUTZUNGSBEDINGUNGEN</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="team" class="part">
+    <div class="container">
+      <div class="row">
+        <h1>Team</h1>
+        <div class="col-md-4 col-md-offset-2 col-xs-6"> <img src="code/img/burcu.png" style="width:50%" alt="Burcu Akıncı" />
+          <h2>Burcu Akıncı</h2>
+          <p>Doktoratsanwärterin an der Technischen Universität Wien, Department für Raumplanung. Urban Change in Time ist Teil ihrer Doktoratsarbeit und sie ist für das Management, Design und die wissenschaftliche Umsetzung des Projekts zuständig. </p>
+        </div>
+        <div class="col-md-4 col-xs-6"> <img src="code/img/emre.png" style="width:50%" alt="Emre Can Sönmez" />
+          <h2>Emre Can Sönmez</h2>
+          <p>Master Student der Medieninformatik an der Technischen Universität Wien. Er ist der Software-Entwickler hinter dem UCIT Projekt. Die technische Recherche, die Entwicklung sowie die Implementierung wurden von ihm umgesetzt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="collaborators" class="part">
+    <div class="container">
+      <div class="row">
+        <h1>Kollaborateure</h1>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-3 col-xs-3"> <a href="http://www.netidee.at" ><img src="code/img/logo_4.jpg" alt="Netidee" /></a> </div>
+          <div class="col-md-3 col-xs-3"> <a href="http://raum.tuwien.ac.at/" ><img src="code/img/logo_1.jpg" alt="Technische Universität Wien, Department für Raumplanung" /></a> </div>
+          <div class="col-md-3 col-xs-3"> <a href="http://www.inso.tuwien.ac.at/"><img src="code/img/logo_3.jpg" alt="Technische Universität Wien, INSO" /></a> </div>
+          <div class="col-md-3 col-xs-3"> <a href="http://www.bev.gv.at/" ><img src="code/img/logo_5.jpg" alt="Bundesamt für Eich- und Vermessungswesen"  /></a> </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+          <p class="singleLineTextCenter" style="margin-top:40px">Weitere Informationen über die Entwicklung und das Projekt UCIT erhalten Sie auf dem <a href="http://blog.ucit.or.at/">UCIT Blog</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="code/app.js"></script>
+</body>
+</html>
