@@ -148,37 +148,17 @@ p {
 	margin-top: 40px;
 	width: 80%;
 }
-/*
-#collaborators img {
-	max-height: 60px;
-}
-*/
+
 .start-img {
 	position: relative;
 	display: inline-block;
 	cursor: pointer;
 }
-/*
-.startbutton {
-	position: absolute;
-	height: 80px;
-	width: 80px;
-	top: calc(50% - 40px);
-	left: calc(50% - 40px);
-	margin: 0 auto;
-	font-family: Arial;
-	border: hidden;
-	color: white;
-	background: rgba(25,131,196,0.5);
-	font-size: 48px;
-	-webkit-transition: background-color 300ms linear;
-	-moz-transition: background-color 300ms linear;
-	-o-transition: background-color 300ms linear;
-	-ms-transition: background-color 300ms linear;
-	transition: background-color 300ms linear;
-	text-align: center;
+
+.start-img:hover > .startbutton{
+		background: rgb(25,131,196);
 }
-*/
+
 .startbutton{
 width:80px;
 height:80px;
@@ -206,9 +186,6 @@ position:absolute;
 left:23px;
 top:20px;
 }
-
-
-
 
 @media screen and (max-width: 768px) {
 h1 {

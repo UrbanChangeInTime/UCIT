@@ -2,8 +2,6 @@ var years = ["1870", "1900", "1910", "1920", "1930", "1940", "1950", "1955", "19
 var lastValue = 0;
 var init = true;
 var startYear = 1870;
-
-//var url = 'http://dev.ucit.or.at/tomcat/geoserver/ucit/wms';
 var url = 'http://ucit.or.at/tomcat/geoserver/ucit/gwc/service/wms';
 
 $("#slider").slider({
@@ -215,9 +213,3 @@ $(".start-img").on("click", function(e){
 	$('[id^="OpenLayers_Control_OverviewMap_"]').css('display','block');
 	$('[id^="OpenLayers_Control_ScaleLine_"]').css('display','block');
 });
-
-// bootstrap start image hover
-$(".start-img").hover(
-	function(){	$(".startbutton").css('background','rgba(25,131,196,1)');},
-	function(){	$(".startbutton").css('background','rgba(25,131,196,0.5)');}
-);
