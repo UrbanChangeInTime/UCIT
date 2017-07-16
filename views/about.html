@@ -1,0 +1,203 @@
+<perfect-scrollbar wheel-propagation="true" swipe-easing="true" id="contents" ng-show="aboutVisible">
+  <language-switcher></language-switcher>
+
+  <div id="start" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate='TITLE'></h1>
+          <h4 translate='TITLE2'></h4>
+        </div>
+        <div class="start-img" ng-click="toggleAbout()"><img src="images/about/entry.gif" class="fullW" alt="Start"/>
+          <div class="startbutton"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="about" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate='ABOUT.TITLE'></h1>
+          <p translate='ABOUT.PAR1'></p>
+          <p translate='ABOUT.PAR2'></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="maps" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate="MAPS.TITLE"></h1>
+          <p translate="MAPS.PAR1"></p>
+          <img src="images/about/maps_loop_220.gif" class="fullW" alt="Timeline"/>
+          <p translate="MAPS.PAR2"></p>
+          <h3 style="margin-top:40px" translate="MAPS.TABLE.TITLE"></h3>
+          <table class="table table-bordered" style="font-size: 12px !important;">
+            <thead>
+            <tr>
+              <th translate="MAPS.TABLE.YEAR"></th>
+              <th translate="MAPS.TABLE.COVERAGE"></th>
+              <th translate="MAPS.TABLE.SCALE"></th>
+              <th translate="MAPS.TABLE.TYPE"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in mapTable.data">
+              <td>{{item.year}}</td>
+              <td>{{item.coverage}}</td>
+              <td>{{item.scale}}</td>
+              <td ng-bind-html="mapTable.types[$index]"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="building-data" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate="BUILDING_DATA.TITLE"></h1>
+          <p translate="BUILDING_DATA.PAR1"></p>
+          <img src="images/about/buildings.gif" class="fullW" alt="Buildings"/>
+          <p translate="BUILDING_DATA.PAR2"></p>
+          <!-- TODO proper table -->
+          <!--<table id="buildings-table" class="table-bordered col-md-6" style="font-size: 12px !important;"> &lt;!&ndash; TODO proper table font-size &ndash;&gt;
+            <thead>
+            <tr>
+              <th translate="BUILDING_DATA.TABLE_TITLE1"></th>
+              <th translate="BUILDING_DATA.TABLE_TITLE2"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in buildingDataTable.years">
+              <td>{{item}}</td>
+              <td>{{buildingDataTable.texts[$index]}}</td>
+            </tr>
+            </tbody>
+          </table>-->
+          <!-- <div class="col-md-6" layout="row">
+             <div class="page">
+               <div class="tr fullH" ng-repeat="item in buildingDataTable.years">
+                 <div class="td">
+                   <section>
+                     <p>{{item}}</p>
+                   </section>
+                 </div>
+               </div>
+             </div>
+             <div class="page">
+               <div class="tr fullH" ng-repeat="item in buildingDataTable.years">
+                 <div class="td">
+                   <section>
+                     <p>{{buildingDataTable.texts[$index]}}</p>
+                   </section>
+                 </div>
+               </div>
+             </div>
+           </div>-->
+          <h3 style="margin-top:40px" translate="BUILDING_DATA.TITLE2"></h3>
+          <img src="images/about/inventory-graph-full.png" class="fullW" alt="Inventory"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="makingof" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate="MAKING_OF.TITLE"></h1>
+          <p translate="MAKING_OF.PAR1"></p>
+          <p translate="MAKING_OF.PAR2"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="development" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate="DEVELOPMENT.TITLE"></h1>
+          <p translate="DEVELOPMENT.PAR1"></p>
+          <p translate="DEVELOPMENT.PAR2"></p>
+          <p translate="DEVELOPMENT.PAR3"></p>
+          <p translate="DEVELOPMENT.PAR4"></p>
+          <p translate="DEVELOPMENT.PAR5"></p>
+          <p translate="DEVELOPMENT.PAR6"></p>
+          <img src="images/about/dev-graph.png" class="fullW" alt="Development"/></div>
+      </div>
+    </div>
+  </div>
+  <div id="copyright" class="part">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 translate="COPYRIGHT.TITLE"></h1>
+          <p translate="COPYRIGHT.PAR1"></p>
+          <p translate="COPYRIGHT.PAR2"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="collaborators" class="part">
+    <div class="container">
+      <div class="row">
+        <div layout="row" class="col-md-8 col-md-offset-2 col-xs-12 collab-wrapper">
+          <div layout="column" class="col-md-6 col-xs-6">
+            <div class="team-header" layout="row">
+              <h3>Project Team</h3>
+              <div flex></div>
+            </div>
+            <div class="team-function">
+              Management, Design, Visualisation
+            </div>
+            <div class="team-name">
+              <b>Burcu Akıncı</b>
+            </div>
+            <div class="team-function" style="margin-top: 4px">
+              Software Engineering, Web
+            </div>
+            <div class="team-name">
+              <b>Emre Can Sönmez</b>
+            </div>
+          </div>
+          <div layout="column" class="col-md-6 col-xs-6">
+            <div class="team-header" layout="row">
+              <h3>Funded by</h3>
+              <div flex></div>
+            </div>
+            <div flex>
+              <div class="team-function">
+                Internet Foundation Austria
+              </div>
+              <div style="text-align: left; margin-top: 8px">
+                <a href="http://www.netidee.at"><img class="gray-filter" src="images/logos/netidee-logo.png" alt="Netidee"/></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div layout="column" class="col-md-8 col-md-offset-2 col-xs-12 collab-wrapper">
+          <div class="team-header" layout="row">
+            <h3>Collaborators</h3>
+            <div flex></div>
+          </div>
+          <div class="margin col-md-12" layout="row" layout-align="center center">
+            <div class="col-md-3"><a href="http://raum.tuwien.ac.at/"><img class="gray-filter" src="images/logos/tuwien-raum-logo.jpg" alt="Technische Universität Wien, Department für Raumplanung"/></a></div>
+            <div class="col-md-3"><a href="http://www.inso.tuwien.ac.at/"><img class="gray-filter" src="images/logos/inso-logo.jpg" alt="Technische Universität Wien, INSO"/></a></div>
+            <div class="col-md-3"><a href="https://www.data.gv.at/"><img class="gray-filter" src="images/logos/datagvat-logo.png" alt="data.gv.at - offene Daten Österreichs"/></a></div>
+            <div class="col-md-3"><a href="http://www.bev.gv.at/"><img class="gray-filter" src="images/logos/bev-logo.jpg" alt="Bundesamt für Eich- und Vermessungswesen"/></a></div>
+          </div>
+          <div class="margin col-md-12" layout="row"  layout-align="center center">
+            <div class="col-md-4"><a href="https://www.wien.gv.at"><img class="gray-filter" src="images/logos/stadtwien-logo.png" alt="Stadt Wien"/></a></div>
+            <div class="col-md-4"><a href="http://www.oesta.gv.at/"><img class="gray-filter" src="images/logos/oesta-logo.png" alt="Österreichisches Stattsarchiv"/></a></div>
+            <div class="col-md-4"><a href="http://www.arcanum.hu"><img class="gray-filter" src="images/logos/arcanum-logo.png" alt="Arcanum"/></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</perfect-scrollbar>

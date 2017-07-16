@@ -1,0 +1,35 @@
+<md-button id="feedback-button" class="md-warn" ng-click="toggleFeedback()">Feedback</md-button>
+
+<div id="feedback-slider" layout="row">
+  <a class="feedback-close" ng-click="toggleFeedback()">x</a>
+  <form name="feedback-form" ng-submit="submit()">
+    <div id="feedback-content" layout="column">
+      <div layout="row">
+        <md-input-container md-no-float>
+          <input ng-model="feedback.firstName" placeholder="First name">
+        </md-input-container>
+        <md-input-container md-no-float>
+          <input ng-model="feedback.lastName" placeholder="Last name">
+        </md-input-container>
+      </div>
+      <md-input-container md-no-float>
+        <input type="email" ng-model="feedback.email" placeholder="Email" required>
+      </md-input-container>
+      <md-divider></md-divider>
+      <md-input-container md-no-float>
+        <input ng-model="feedback.subject" placeholder="Subject" required>
+      </md-input-container>
+      <md-input-container md-no-float>
+        <textarea rows="3" ng-model="feedback.message" placeholder="Message" required md-no-autogrow></textarea>
+      </md-input-container>
+      <md-divider></md-divider>
+      <div layout="row" layout-align="end end">
+        <md-button ng-disabled="disabled" class="md-small" type="submit">Submit</md-button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+

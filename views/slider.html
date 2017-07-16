@@ -1,0 +1,9 @@
+<div id="slider-container">
+  <md-icon ng-disabled="slider.buttons.leftDisabled" ng-click="changeYear('left')" class="slider-button" style="left: 0" md-svg-icon="left"></md-icon>
+  <div id="slider-wrapper">
+    <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options" rz-slider-tpl-url="views/sliderTemplate.html"></rzslider>
+  </div>
+
+  <md-icon ng-disabled="slider.buttons.rightDisabled" ng-click="changeYear('right')" class="slider-button" style="right: 0" md-svg-icon="right"></md-icon>
+</div>
+<div id="slider-color-bar" bar-color ng-show="mode == 'polygon'"></div> <!-- TODO -->
