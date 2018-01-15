@@ -1,35 +1,54 @@
-<md-button id="feedback-button" class="md-warn" ng-click="toggleFeedback()">Feedback</md-button>
+<md-button id="feedback-button" class="md-whiteframe-1dp" class="md-warn" ng-click="toggleFeedback()">Feedback</md-button>
 
-<div id="feedback-slider" layout="row">
+<div id="feedback-slider" layout="column" ng-class="{'expanded' : panelIsOpen}">
   <a class="feedback-close" ng-click="toggleFeedback()">x</a>
-  <form name="feedback-form" ng-submit="submit()">
-    <div id="feedback-content" layout="column">
-      <div layout="row">
-        <md-input-container md-no-float>
-          <input ng-model="feedback.firstName" placeholder="First name">
-        </md-input-container>
-        <md-input-container md-no-float>
-          <input ng-model="feedback.lastName" placeholder="Last name">
-        </md-input-container>
-      </div>
-      <md-input-container md-no-float>
-        <input type="email" ng-model="feedback.email" placeholder="Email" required>
-      </md-input-container>
-      <md-divider></md-divider>
-      <md-input-container md-no-float>
-        <input ng-model="feedback.subject" placeholder="Subject" required>
-      </md-input-container>
-      <md-input-container md-no-float>
-        <textarea rows="3" ng-model="feedback.message" placeholder="Message" required md-no-autogrow></textarea>
-      </md-input-container>
-      <md-divider></md-divider>
-      <div layout="row" layout-align="end end">
-        <md-button ng-disabled="disabled" class="md-small" type="submit">Submit</md-button>
-      </div>
+
+  <uib-accordion >
+    <div uib-accordion-group class="panel-default survey" ng-click="openSurvey()">
+      <uib-accordion-heading>
+        {{'FEEDBACK.SURVEY' | translate }}
+        <i class="pull-right glyphicon glyphicon-new-window"></i>
+      </uib-accordion-heading>
     </div>
-  </form>
+
+    <div uib-accordion-group class="panel-default" is-open="$parent.panelIsOpen">
+
+      <uib-accordion-heading>
+        {{'FEEDBACK.FEEDBACK' | translate }}
+        <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': $parent.$parent.panelIsOpen, 'glyphicon-chevron-right': !$parent.$parent.panelIsOpen}"></i>
+      </uib-accordion-heading>
+
+      <form name="feedback-form" ng-submit="submit()">
+        <div id="feedback-content" layout="column">
+          <div layout="row">
+            <md-input-container md-no-float>
+              <input ng-model="feedback.firstName" placeholder="{{'FEEDBACK.FIRSTNAME' | translate }}">
+            </md-input-container>
+            <md-input-container md-no-float>
+              <input ng-model="feedback.lastName" placeholder="{{'FEEDBACK.LASTNAME' | translate }}">
+            </md-input-container>
+          </div>
+          <md-input-container md-no-float>
+            <input type="email" ng-model="feedback.email" placeholder="{{'FEEDBACK.EMAIL' | translate }}" required>
+          </md-input-container>
+          <md-divider></md-divider>
+          <md-input-container md-no-float>
+            <input ng-model="feedback.subject" placeholder="{{'FEEDBACK.SUBJECT' | translate }}" required>
+          </md-input-container>
+          <md-input-container md-no-float>
+            <textarea rows="3" ng-model="feedback.message" placeholder="{{'FEEDBACK.MESSAGE' | translate }}" required md-no-autogrow></textarea>
+          </md-input-container>
+          <md-divider></md-divider>
+          <div layout="row" layout-align="end center">
+            <span flex class="error" ng-if="error">{{'FEEDBACK.ERROR' | translate }}</span>
+            <md-button ng-disabled="disabled" class="md-small" type="submit">{{'FEEDBACK.SUBMIT' | translate }}</md-button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    </uib-accordion>
+
+
+
 </div>
-
-
-
-

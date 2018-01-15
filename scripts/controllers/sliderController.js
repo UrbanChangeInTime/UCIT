@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ucitIIApp').controller('sliderController', function ($scope, constants, $log, yearsFactory, $timeout) {
+angular.module('ucitIIApp').controller('sliderController', function ($scope, constants, yearsFactory, $timeout) {
   var years = yearsFactory.getSliderYears($scope.mode);
   var yearsActive = yearsFactory.getActiveYears($scope.mode);
 
@@ -43,12 +43,9 @@ angular.module('ucitIIApp').controller('sliderController', function ($scope, con
         return 'black';
       },
       onEnd: function (id, endValue) {
-        $log.info('slider on end trigger!');
         var currentYear = $scope.mode == 'raster' ? current.raster : current.polygon;
 
         if (currentYear !== endValue) {
-          $log.debug('on End: ' + endValue);
-
           if ($scope.mode == 'raster') {
             changeRasterLayer(endValue, currentYear);
             current.raster = endValue;
@@ -58,7 +55,7 @@ angular.module('ucitIIApp').controller('sliderController', function ($scope, con
           }
 
           if(endValue < currentYear){
-            $scope.slider.buttons.leftDisabled = (endValue == 1700 || endValue == 1685);
+            $scope.slider.buttons.leftDisabled = (endValue == 1760 || endValue == 1685);
             $scope.slider.buttons.rightDisabled = false;
           } else {
             $scope.slider.buttons.rightDisabled = (endValue == 2010 || endValue == 2015);
@@ -68,7 +65,6 @@ angular.module('ucitIIApp').controller('sliderController', function ($scope, con
         }
       },
       onChange: function (sliderId, endValue) {
-        $log.debug("on Change: " + endValue);
         if (yearsActive.indexOf(endValue) == -1) {
           $scope.slider.value = $scope.mode == 'raster' ? current.raster : current.polygon;
         }
@@ -90,7 +86,6 @@ angular.module('ucitIIApp').controller('sliderController', function ($scope, con
           return;
         }
 
-        $log.debug($scope.slider.value);
         valueNew = yearsActive[yearsActive.indexOf($scope.slider.value) - 1];
         $scope.slider.value = valueNew;
     } else {
@@ -98,7 +93,6 @@ angular.module('ucitIIApp').controller('sliderController', function ($scope, con
           return;
         }
 
-        $log.debug($scope.slider.value);
         valueNew = yearsActive[yearsActive.indexOf($scope.slider.value) + 1];
         $scope.slider.value = valueNew;
     }
@@ -133,13 +127,13 @@ angular.module('ucitIIApp').controller('sliderController', function ($scope, con
 
   function disableButtons(oldValue, newValue){
     if(oldValue == null){
-      $scope.slider.buttons.leftDisabled = (newValue == 1700 || newValue == 1685);
+      $scope.slider.buttons.leftDisabled = (newValue == 1760 || newValue == 1685);
       $scope.slider.buttons.rightDisabled = (newValue == 2010 || newValue == 2015);
       return;
     }
 
     if(newValue < oldValue){
-      $scope.slider.buttons.leftDisabled = (newValue == 1700 || newValue == 1685);
+      $scope.slider.buttons.leftDisabled = (newValue == 1760 || newValue == 1685);
       $scope.slider.buttons.rightDisabled = false;
     } else {
       $scope.slider.buttons.rightDisabled = (newValue == 2010 || newValue == 2015);

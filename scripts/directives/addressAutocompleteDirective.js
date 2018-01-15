@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ucitIIApp').directive('addressAutocomplete', function (addressFetchService, markerService, $log) {
+angular.module('ucitIIApp').directive('addressAutocomplete', function (addressFetchService, markerService) {
   return {
     templateUrl: "views/addressAutocomplete.html",
     replace: true,
@@ -8,7 +8,7 @@ angular.module('ucitIIApp').directive('addressAutocomplete', function (addressFe
       map: "=",
       mode: "="
     },
-    link: function (scope, element, attrs, model) {
+    link: function (scope) {
       var previousHoverAddress;
       scope.address = {};
       scope.fetchAddress = addressFetchService.fetchAddress;
@@ -40,8 +40,6 @@ angular.module('ucitIIApp').directive('addressAutocomplete', function (addressFe
 
       scope.$watch('address.selected', function(newValue, oldValue) {
         if(newValue != oldValue && newValue){
-          console.log("address changed");
-
           scope.map.setView(new ol.View({
             center: ol.proj.transform([newValue.geometry.coordinates[0], newValue.geometry.coordinates[1]], 'EPSG:4326', 'EPSG:900913'),
             zoom: 18
@@ -58,7 +56,6 @@ angular.module('ucitIIApp').directive('addressAutocomplete', function (addressFe
           return;
         }
 
-        $log.info("marker highlight");
         address.feature.setStyle(new ol.style.Style({
           image: new ol.style.Icon(({
             anchor: [0.5, 46],

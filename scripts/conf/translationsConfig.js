@@ -5,7 +5,6 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
   // http://angular-translate.github.io/docs/#/guide/19_security - guidelines
   //$translateProvider.useSanitizeValueStrategy('escape');
 
-  // TODO add the rest of the text!
   $translateProvider.translations('EN', {
     TITLE: 'Urban Change In Time',
     TITLE2: 'How did Vienna become what it is today?<br>How did it change through time?',
@@ -31,21 +30,23 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
         SCALE: 'Scale',
         TYPE: 'Type',
         TYPES: {
-          1: 'The third military survey (1869-1887)',
-          2: 'The fourth military survey (1896-1915)',
-          3: 'National maps-Special Edition (1872-1944)',
-          4: 'National maps-Special Edition (1872-1944)',
+          1: 'The first military survey (1763-1787)',
+          2: 'The second military survey (1806-1869)',
+          3: 'The third military survey (1869-1887)',
+          4: 'The fourth military survey (1896-1915)',
           5: 'National maps-Special Edition (1872-1944)',
-          6: 'OEK50 National Maps-Provisional Edition (1945-1970)',
-          7: 'OEK50 National Maps-Provisional Edition (1945-1970)',
-          8: 'OEK25 National Maps (1923-1959)',
-          9: 'OEK50 National Maps',
-          10: 'OEK50 National Maps',
+          6: 'National maps-Special Edition (1872-1944)',
+          7: 'National maps-Special Edition (1872-1944)',
+          8: 'OEK50 National Maps-Provisional Edition (1945-1970)',
+          9: 'OEK50 National Maps-Provisional Edition (1945-1970)',
+          10: 'OEK25 National Maps (1923-1959)',
           11: 'OEK50 National Maps',
           12: 'OEK50 National Maps',
           13: 'OEK50 National Maps',
-          14: 'OEK50-UTM National Maps',
-          15: 'OEK50-UTM National Map'
+          14: 'OEK50 National Maps',
+          15: 'OEK50 National Maps',
+          16: 'OEK50-UTM National Maps',
+          17: 'OEK50-UTM National Map'
         }
       }
     },
@@ -54,6 +55,8 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
       TITLE2: 'How old are these buildings?',
       PAR1: 'UCIT visualises the existing built environment information provided by the City of Vienna (ViennaGIS MA19). Since the year 1997 inventory of the important Viennese building data has been ambitiously collected by several departments of the City of Vienna and it can be found at <a target="_blank" target="_blank" href="https://www.wien.gv.at/kulturportal/public/">Wien Kulturgut</a>. UCIT displays the <a target="_blank" target="_blank" href="https://www.wien.gv.at/kultur/kulturgut/architektur/bauperioden.html">period of construction</a> and built year data of this inventory and allows the comparison with the historical maps provided.',
       PAR2: 'The layer of the buildings is located on top of the existing raster maps layer where you can switch between historical maps and the current urban fabric. This allows an easy comparison between these different sources of information.',
+      PAR3: 'The distribution of the existing building inventory can be seen below. It soon became clear that most of the buildings were built in the post-war period (42%). The second big concentration belongs to the Gründerzeit period, which includes early Gründerzeit, Gründerzeit and late Gründerzeit (33%).',
+      PAR4: 'In total, we integrated approximately 171,000 building polygons into our application. These data made available by Open Government Data Online Services. The building data (built year, building period, source) that is given by the city of Vienna consists approximately 38,000 buildings at the moment, which covers 22% of the entire buildings of Vienna.',
       TABLE_TITLE1: 'Period coverage',
       TABLE_TITLE2: 'Period description',
       TABLE: {
@@ -107,12 +110,13 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
       PAR3: 'This process allowed us to import the data into <a target="_blank" target="_blank" href="http://www.geoserver.org" >GeoServer</a>. GeoServer reads a variety of data formats, including GeoTIFF format and it is an easy method of connecting existing information to web-based maps like <a target="_blank" target="_blank" href="http://www.openlayers.org" >OpenLayers</a>. OpenLayers is used to display the map data in web browsers. Pyramids of tiles are then created on the map server by <a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/Web_Map_Service" >WMS</a> to increase the performance of the map display in web browsers. <a target="_blank" target="_blank" href="http://en.wikipedia.org/wiki/JavaScript" >JavaScript</a> is used as front-end to glue all the components together.',
       PAR4: 'This layout was built using <a target="_blank" target="_blank" href="http://www.getbootstrap.com" >Bootstrap</a>, inspired by <a target="_blank" target="_blank" href="http://io.morphocode.com/urban-layers/" >Urban Layers</a>.',
       PAR5: 'Map controls (zoom in/out, overview map) are originally OpenLayers\' controls.',
-      PAR6: 'The timeslider is created based on <a target="_blank" href="http://jqueryui.com" >jQuery-UI</a>, it allows you to move through time by clicking on the year, simply by dragging it or by using the left and right keys.'
+      PAR6: 'The timeslider is created based on <a target="_blank" href="http://angular-slider.github.io/angularjs-slider/" >angularjs-slider</a>, it allows you to move through time by clicking on the year, simply by dragging it or by using the left and right keys.'
     },
     COPYRIGHT: {
       TITLE: 'copyright',
       PAR1: 'UCIT is available as open source software under the <a target="_blank" href="https://www.gnu.org/copyleft/gpl.html" >GNU GPLv3 license model</a>. The source code is available on <a target="_blank" href="http://github.com/UrbanChangeInTime/UCIT" >GitHub</a>.',
-      PAR2: 'Building data and shape data is available at <a target="_blank" href="https://www.data.gv.at/" >Open Government Data</a> as open source. The city of Vienna (ViennaGIS MA19) made the data open and available here: <a target="_blank" href="https://www.data.gv.at/katalog/dataset/38aac30b-6b79-4fee-88f0-a37b2e6c0f92">Vienna building period and typology.</a>'
+      PAR2: 'Building data and shape data is available at <a target="_blank" href="https://www.data.gv.at/" >Open Government Data</a> as open source. The city of Vienna (ViennaGIS MA19) made the data open and available here: <a target="_blank" href="https://www.data.gv.at/katalog/dataset/38aac30b-6b79-4fee-88f0-a37b2e6c0f92">Vienna building period and typology.</a>',
+      PAR3: 'The copyrights of the historical maps belong to the <a target="_blank" href="http://www.oesta.gv.at/DesktopDefault.aspx?alias=oestaen&init">the National Archives of Austria (OeStA)</a> and <a target="_blank" href="http://www.bev.gv.at/">Austrian Federal Office of Metrology and Surveying.</a> UCIT has the "Web-View" right to use the data of BEV which enables representation (visualisation) of data in a web application.'
     },
     TEAM: {
       TITLE: 'team',
@@ -125,9 +129,53 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
       SOURCE: 'Source:',
       YEAR: 'Built Year:',
       PERIOD: "Building Period:",
-      TYPE: "Type:",
-      SCALE: "Scale:",
-      ACTUAL_YEAR: "Actual Year:"
+      TYPE: 'Type:',
+      SCALE: 'Scale:',
+      ACTUAL_YEAR: 'Actual Year:',
+      ESTIMATE: 'Some built years and periods are estimates.'
+    },
+    TOOLTIP: {
+      RASTER:{
+        1760: '1760',
+        1800: '1800',
+        1870: '1870',
+        1900: '1900',
+        1910: '1910',
+        1920: '1920',
+        1930: '1930',
+        1940: '1940',
+        1950: '1950',
+        1955: '1955',
+        1960: '1960',
+        1970: '1970',
+        1980: '1980',
+        1990: '1990',
+        1995: '1995',
+        2000: '2000',
+        2010: '2010'
+      },
+      POLYGON: {
+        1685: 'before 1683\nBefore the second Siege of Vienna',
+        1740: '1683-1740\nHigh Baroque',
+        1850: '1741-1848\nRococo, Classicism-Biedermeier Period',
+        1860: '1849-1859\nEarly Gründerzeit',
+        1885: '1860-1883\nGründerzeit',
+        1920: '1884-1918\nLate Gründerzeit',
+        1945: '1919-1945\nBetween World Wars',
+        1975: '1946-1976\nPost-war Period',
+        2015: 'after 1976\nPresent'
+      }
+    },
+    FEEDBACK: {
+      FIRSTNAME: 'First name',
+      LASTNAME: 'Last name',
+      EMAIL: 'Email',
+      SUBJECT: 'Subject',
+      MESSAGE: 'Message',
+      SUBMIT: 'Send',
+      ERROR: 'Feedback was not sent!',
+      SURVEY: 'Take our survey!',
+      FEEDBACK: 'Send Feedback!'
     }
   });
 
@@ -136,7 +184,7 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
     TITLE2: 'Wie wurde Wien was es heute ist?<br>Wie hat es sich über die Zeit hinweg verändert?',
     ABOUT: {
       TITLE: 'über',
-      PAR1: 'Urban Change in Time (UCIT) zeigt zum ersten Mal in vollem Umfang die Entwicklung der Stadt Wien vom 16ten Jahrhundert bis heute. Es lässt den Betrachter durch historische Karten Wiens aus verschiedenen Jahren in unterschiedlichen Maßstäben navigieren. Zusätzlich kann man die bebaute Struktur entdecken, das Baujahr eines Gebäudes bzw. die Bauperiode. UCIT bringt dazu nationale historische Karten des <a target="_blank" target="_blank" href="http://www.oesta.gv.at/">Österreichischen Staatsarchivs (OeStA)</a> und dem <a target="_blank" target="_blank" href="http://www.bev.gv.at/">Bundesamt für Eich und Vermessungswesen (BEV)</a> zusammen. Die Daten über den Gebäudebestand wurden von der <a target="_blank" target="_blank" href="https://www.wien.gv.at/">Stadt Wien</a> zur Verfügung gestellt.',
+      PAR1: 'Urban Change in Time (UCIT) zeigt zum ersten Mal in vollem Umfang die Entwicklung der Stadt Wien vom 16ten Jahrhundert bis heute. Es lässt den Betrachter durch historische Karten Wiens aus verschiedenen Jahren in unterschiedlichen Maßstäben navigieren. Zusätzlich kann man die bebaute Struktur entdecken, das Baujahr eines Gebäudes bzw. die Bauperiode. UCIT bringt dazu nationale historische Karten des <a target="_blank" target="_blank" href="http://www.oesta.gv.at/">Österreichischen Staatsarchivs (OeStA)</a> und des <a target="_blank" target="_blank" href="http://www.bev.gv.at/">Bundesamts für Eich und Vermessungswesen (BEV)</a> zusammen. Die Daten über den Gebäudebestand wurden von der <a target="_blank" target="_blank" href="https://www.wien.gv.at/">Stadt Wien</a> zur Verfügung gestellt.',
       PAR2: 'UCIT versucht urbane Veränderung sichtbar zu machen und ein Bewusstsein für die Wichtigkeit der Vergangenheit der Stadt zu schaffen, als auch eine Reflektion über eine mögliche Zukunft anzuregen. Das Projekt wurde von der <a target="_blank" target="_blank" href="http://www.netidee.at/">netidee - Internet Privatstiftung Austria (IPA)</a> gefördert.'
     },
     BUTTONS: {
@@ -156,29 +204,33 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
         SCALE: 'Maßstab',
         TYPE: 'Typ',
         TYPES: {
-          1: 'Dritte Landesaufnahme\nFranzisco-Josephinische Landesaufnahme (1869-1887)',
-          2: 'Vierte Landesaufnahme\nPräzisionsaufnahme (1896-1915)',
-          3: 'Spezialkarte (1872-1944)',
-          4: 'Spezialkarte (1872-1944)',
+          1: 'Josephinische Landesaufnahme (1763-1787)',
+          2: 'Franziszeische Landesaufnahme (1806-1869)',
+          3: 'Dritte Landesaufnahme\nFranzisco-Josephinische Landesaufnahme (1869-1887)',
+          4: 'Vierte Landesaufnahme\nPräzisionsaufnahme (1896-1915)',
           5: 'Spezialkarte (1872-1944)',
-          6: 'OEK 50 Prov - Provisorische Ausgabe (1945-1970)',
-          7: 'OEK 50 Prov - Provisorische Ausgabe (1945-1970)',
-          8: 'OEK25 Österreichische Karte (1923-1959)',
-          9: 'OEK50 Österreichische Karte',
-          10: 'OEK50 Österreichische Karte',
+          6: 'Spezialkarte (1872-1944)',
+          7: 'Spezialkarte (1872-1944)',
+          8: 'OEK 50 Prov - Provisorische Ausgabe (1945-1970)',
+          9: 'OEK 50 Prov - Provisorische Ausgabe (1945-1970)',
+          10: 'OEK25 Österreichische Karte (1923-1959)',
           11: 'OEK50 Österreichische Karte',
           12: 'OEK50 Österreichische Karte',
           13: 'OEK50 Österreichische Karte',
-          14: 'OEK50-UTM Österreichische Karte',
-          15: 'OEK50-UTM Österreichische Karte'
+          14: 'OEK50 Österreichische Karte',
+          15: 'OEK50 Österreichische Karte',
+          16: 'OEK50-UTM Österreichische Karte',
+          17: 'OEK50-UTM Österreichische Karte'
         }
       }
     },
     BUILDING_DATA: {
       TITLE: 'gebäudedaten',
       TITLE2: 'Wie alt sind diese Gebäude?',
-      PAR1: 'UCIT visualisiert die Daten über die bebaute Umgebung welche von der Stadt Wien zur Verfügung gestellt wurden. Seit dem Jahr 1997 sammeln verschiedenste Abteilungen der Stadt Wien wichtige Gebäudedaten aller Gebäude Wiens und stellen diese auf Wien Kulturgut zur Verfügung. UCIT zeigt die Bauperiode und das Baujahr dieses Inventars und erlaubt es einen Vergleich mit den historischen Karten herzustellen.',
+      PAR1: 'UCIT visualisiert die Daten über die bebaute Umgebung welche von der Stadt Wien zur Verfügung gestellt wurden. Seit dem Jahr 1997 sammeln verschiedenste Abteilungen der Stadt Wien wichtige Gebäudedaten aller Gebäude Wiens und stellen diese auf <a target="_blank" target="_blank" href="https://www.wien.gv.at/kulturportal/public/">Wien Kulturgut</a> zur Verfügung. UCIT zeigt die <a target="_blank" target="_blank" href="https://www.wien.gv.at/kultur/kulturgut/architektur/bauperioden.html">Bauperiode</a> und das Baujahr dieses Inventars und erlaubt es einen Vergleich mit den historischen Karten herzustellen.',
       PAR2: 'Der Layer der Gebäude kann über die existierenden historischen Rasterkarten eingeblendet werden. Dies erlaubt einen schnellen Wechsel zwischen diesen unterschiedlichen Informationsquellen.',
+      PAR3: 'Unten sieht man die Verteilung des existierenden Gebäudeinventars. Es wird schnell klar, dass die meisten Gebäude in der Nachkriegszeit errichtet wurden (42%). Die zweite große Konzentration gehört der der Gründerzeit, dazu gehören Frühgründerzeit, Hochgründerzeit und Spätgründerzeit (gesamt 33%).',
+      PAR4: 'Insgesamt haben wir ungefähr 171.000 Gebäudepolygone von Wien in unsere Applikation integriert. Diese Daten wurden von Open Government Data Online Services zusammengetragen. Die Gebäudedaten (Baujahr, Bauperiode, Quelle) der Stadt Wien umfassen momentan ungefähr 38.000 Gebäude, das entspricht einer 22 prozentigen Abdeckung der gesamten Gebäude Wiens.',
       TABLE_TITLE1: 'Period coverage',
       TABLE_TITLE2: 'Period description',
       TABLE: {
@@ -223,7 +275,7 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
     MAKING_OF: {
       TITLE: 'die Entstehung von UCIT',
       PAR1: 'Das heutige digitale Zeitalter ermöglicht es interessante dynamische Visualisierungen zu erstellen. Die Grundidee hinter UCIT ist es das urbane Wachstum in einer einfachen und benutzerfreundlichen Art sichtbar zu machen.',
-      PAR2: 'Um dieses Projekt umsetzen zu können brauchten wir zuerst historische Daten und zwar viele davon. Die Jagd nach diesen begann. Wir trafen viele Personen aus unterschiedlichsten Organisationen und Abteilungen um zu sehen welche Daten sie besitzen und wie wir diese für unser Projekt nutzen könnten. Nach einer langen Phase der Evaluierung was existiert und wer diese Daten hat, konnten wir uns mit der zweiten Phase beschäftigen: die Daten zu Ordnen und Säubern bzw. in die entsprechende Form zu bringen. Am Ende haben wir es geschafft die Daten zu nutzen und so zu Visualisieren wie wir es uns vorgenommen hatten. Natürlich wissen wir dass dies ein fortwährender Prozess ist aber wir sind stolz es bereits so weit geschafft zu haben.'
+      PAR2: 'Um dieses Projekt umsetzen zu können brauchten wir zuerst historische Daten und zwar viele davon. Die Jagd nach diesen begann. Wir trafen viele Personen aus unterschiedlichsten Organisationen und Abteilungen um zu sehen welche Daten sie besitzen und wie wir diese für unser Projekt nutzen könnten. Nach einer langen Phase der Evaluierung - was existiert und wer hat diese Daten, konnten wir uns mit der zweiten Phase beschäftigen: die Daten zu ordnen und säubern bzw. in die entsprechende Form zu bringen. Am Ende haben wir es geschafft die Daten zu nutzen und so zu visualisieren wie wir es uns vorgenommen hatten. Natürlich wissen wir dass dies ein fortwährender Prozess ist aber wir sind stolz es bereits so weit geschafft zu haben.'
     },
     DEVELOPMENT: {
       TITLE: 'development',
@@ -232,12 +284,13 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
       PAR3: 'Dieser Prozess hat es uns ermöglicht, die Daten in den <a target="_blank" href="http://www.geoserver.org" >GeoServer</a> zu integrieren. GeoServer kann mit einer Vielzahl von Datenformaten umgehen, unter anderem GeoTIFF, und ermöglicht es einfach existierende Daten mit kartographischen Web-Anwendungen zu verknüpfen. Um die kartographischen Daten im Web Browser darzustellen wird <a target="_blank" href="http://www.openlayers.org" >OpenLayers</a> verwendet.',
       PAR4: 'Pyramiden von Kacheln werden dann am Kartenserver mittels <a target="_blank" href="http://en.wikipedia.org/wiki/Web_Map_Service" >WMTS</a> erzeugt um die Darstellung der Karten performanter zu gestalten.',
       PAR5: 'Dieses Layout wurde mit <a target="_blank" href="http://www.getbootstrap.com" >Bootstrap</a> erstellt, inspiriert von <a target="_blank" href="http://io.morphocode.com/urban-layers/" >Urban Layers</a>.',
-      PAR6: 'Die Zeitleiste wurde basierend auf <a target="_blank" href="http://jqueryui.com" >jQuery-UI</a> erstellt. Es ermöglicht eine Navigation durch einfaches Klicken auf das Jahr oder durch Ziehen des Sliders.'
+      PAR6: 'Die Zeitleiste wurde basierend auf <a target="_blank" href="http://angular-slider.github.io/angularjs-slider/" >angularjs-slider</a> erstellt. Sie ermöglicht eine Navigation durch einfaches Klicken auf das Jahr oder durch Ziehen des Sliders.'
     },
     COPYRIGHT: {
       TITLE: 'copyright',
       PAR1: 'UCIT wird als Open Source Software unter der <a target="_blank" href="https://www.gnu.org/copyleft/gpl.html">GNU GPLv3 Lizenz</a> publiziert. Der Source Code ist auf <a target="_blank" href="http://github.com/UrbanChangeInTime/UCIT">GitHub</a> verfügbar.',
-      PAR2: 'Das Copyright an den historischen Karten besitzt die <a target="_blank" href="http://www.oesta.gv.at/">Österreichischen Staatsarchivs (OeStA)</a> und das <a target="_blank" href="http://www.bev.gv.at/">Bundesamt für Eich- und Vermessungswesen (BEV)</a>. UCIT hat die “Web-View” Lizenz für die verwendeten Karten von BEV erworben um diese in der Web Applikation darstellen zu dürfen.'
+      PAR2: 'Die Gebäude- und Vektordaten sind auf <a target="_blank" href="https://www.data.gv.at/" >Open Government Data</a> verfügbar. Die Stadt Wien (ViennaGIS MA19) stellt diese Daten hier zur Verfügung: <a target="_blank" href="https://www.data.gv.at/katalog/dataset/38aac30b-6b79-4fee-88f0-a37b2e6c0f92">Bauperioden und Bautypologien Wien.</a>',
+      PAR3: 'Das Copyright an den historischen Karten besitzten das <a target="_blank" href="http://www.oesta.gv.at/">Österreichische Staatsarchivs (OeStA)</a> und das <a target="_blank" href="http://www.bev.gv.at/">Bundesamt für Eich- und Vermessungswesen (BEV)</a>. UCIT hat die “Web-View” Lizenz für die verwendeten Karten vom BEV erworben um diese in der Web Applikation darstellen zu dürfen.'
     },
     TEAM: {
       TITLE: 'team',
@@ -249,10 +302,54 @@ angular.module('ucitIIApp').config(function ($translateProvider) {
     INFOWINDOW: {
       SOURCE: 'Quelle:',
       YEAR: 'Baujahr:',
-      PERIOD: "Bauperiod:",
+      PERIOD: "Bauperiode:",
       TYPE: "Typ:",
       SCALE: "Maßstab:",
-      ACTUAL_YEAR: "Jahr:"
+      ACTUAL_YEAR: "Jahr:",
+      ESTIMATE: 'Manche Baujahre und Bauperioden können Schätzungen sein.'
+    },
+    TOOLTIP: {
+      RASTER:{
+        1760: '1760',
+        1800: '1800',
+        1870: '1870',
+        1900: '1900',
+        1910: '1910',
+        1920: '1920',
+        1930: '1930',
+        1940: '1940',
+        1950: '1950',
+        1955: '1955',
+        1960: '1960',
+        1970: '1970',
+        1980: '1980',
+        1990: '1990',
+        1995: '1995',
+        2000: '2000',
+        2010: '2010'
+      },
+      POLYGON: {
+        1685: 'vor 1683\nVor der Zweiten Türkenbelagerung',
+        1740: '1683-1740\nHochbarock',
+        1850: '1741-1848\nRokoko, Klassizismus-Biedermeier',
+        1860: '1849-1859\nFrühgründerzeit',
+        1885: '1860-1883\nGründerzeit',
+        1920: '1884-1918\nSpätgründerzeit',
+        1945: '1919-1945\nZwischenkriegszeit',
+        1975: '1946-1976\nNachkriegszeit',
+        2015: 'nach 1976\nGegenwart'
+      }
+    },
+    FEEDBACK: {
+      FIRSTNAME: 'Vorname',
+      LASTNAME: 'Nachname',
+      EMAIL: 'Email',
+      SUBJECT: 'Betreff',
+      MESSAGE: 'Nachricht',
+      SUBMIT: 'Senden',
+      ERROR: 'Das Feedback wurde nicht versandt!',
+      SURVEY: 'An unserer Umfrage teilnehmen!',
+      FEEDBACK: 'Feedback geben!'
     }
   });
   $translateProvider.preferredLanguage('DE');

@@ -1,17 +1,17 @@
 <div id="map-controls" layout="column">
-  <img ng-src="images/ucit-logo.png" uib-tooltip="{{ 'BUTTONS.ABOUT' | translate }}"
+  <img ng-src="images/ucit-logo.png" uib-tooltip="{{ 'BUTTONS.ABOUT' | translate }}" class="md-whiteframe-1dp"
        tooltip-placement="right" tooltip-class="tooltip-single-line" tooltip-popup-close-delay='200'
        ng-click="toggleAbout()" style="height: 50px;"/>
 
   <img uib-tooltip="{{ 'BUTTONS.RASTER' | translate }}" tooltip-placement="right" tooltip-class="tooltip-single-line" tooltip-popup-close-delay='200'
-       ng-src="images/icons/maps_{{mode == 'polygon' ? 'idle' : 'active'}}.png" class="map-button draw"
+       ng-src="images/icons/maps_{{mode == 'polygon' ? 'idle' : 'active'}}.png" class="map-button draw md-whiteframe-1dp"
        ng-click="toggleLayer('raster')"/>
 
   <img uib-tooltip="{{ 'BUTTONS.POLYGON' | translate }}" tooltip-placement="right" tooltip-class="tooltip-single-line" tooltip-popup-close-delay='200'
-       ng-src="images/icons/buildings_{{mode == 'raster' ? 'idle' : 'active'}}.png" class="map-button"
+       ng-src="images/icons/buildings_{{mode == 'raster' ? 'idle' : 'active'}}.png" class="map-button md-whiteframe-1dp"
        ng-click="toggleLayer('polygon')"/>
 
   <img uib-tooltip="{{ 'BUTTONS.GOOGLE' | translate }}" tooltip-placement="right" tooltip-class="tooltip-single-line" tooltip-popup-close-delay='200'
        ng-src="images/icons/buildingsgoogle_{{googleVisible ? 'active' : 'idle'}}.png" ng-show="mode == 'polygon'"
-       class="map-button" ng-click="toggleGoogle()"/>
+       class="map-button md-whiteframe-1dp" ng-click="toggleGoogle()"/>
 </div>

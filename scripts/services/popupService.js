@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ucitIIApp').service('popupService', function (mapService, $templateCache, $compile, $rootScope) {
+angular.module('ucitIIApp').service('popupService', function (mapService, $templateCache, $compile, $rootScope, $translate) {
   var popup = new ol.Overlay.Popup();
   var scope = $rootScope.$new(true);
 
@@ -58,7 +58,7 @@ angular.module('ucitIIApp').service('popupService', function (mapService, $templ
             '<tr>' +
               '<td class="label-iw" translate="INFOWINDOW.YEAR">' +
               '</td>' +
-              '<td align="right">' +
+              '<td align="right" ng-if="properties.year > 0">' +
                 '{{properties.year}}' +
               '</td>' +
             '</tr>' +
@@ -86,16 +86,28 @@ angular.module('ucitIIApp').service('popupService', function (mapService, $templ
           '</tbody>' +
         '</table>' +
         '<div>' +
-          '<p>Some built years and periods are estimates</p>' +
+          '<p translate="INFOWINDOW.ESTIMATE"></p>' +
         '</div>' +
     '</div>';
 
   $templateCache.put('raster', raster);
   $templateCache.put('polygon', polygon);
 
-  this.show = function(coord, contentObject, type){
-    var template = $templateCache.get(type);
+  var infowindows= {
+    raster: $templateCache.get('raster'),
+    polygon: $templateCache.get('polygon')
+  };
 
+  this.show = function(coord, contentObject, type){
+    var template = infowindows[type];
+
+    // check for english usage
+    if($translate.use() === 'EN' && type === 'polygon'){
+      contentObject.period = contentObject.period.replace('vor', 'before').replace('nach', 'after');
+    } else if($translate.use() === 'DE' && type === 'raster'){
+      contentObject.Type = contentObject.Typ;
+      contentObject.Source = contentObject.Quelle;
+    }
     // replace infowindow content with content object.
     scope.properties = contentObject;
 

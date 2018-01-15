@@ -5,6 +5,16 @@ angular.module('ucitIIApp').factory('$global', function () {
   var nextLanguage = 'EN';
   var mapTableData = [
     {
+      "year": 1760,
+      "coverage": "1763-1787",
+      "scale": "1:28.800"
+    },
+    {
+      "year": 1800,
+      "coverage": "1806-1869",
+      "scale": "1:28.800"
+    },
+    {
       "year": 1870,
       "coverage": "1872-1875",
       "scale": "1:12.500"

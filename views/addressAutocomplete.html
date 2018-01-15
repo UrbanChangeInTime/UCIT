@@ -1,13 +1,13 @@
 <form id="autocomplete-container" ng-show="mode == 'polygon'" ng-submit="$event.preventDefault()">
-  <img class="search-button map-button" src="images/icons/search-icon.png" ng-click="toggleAutocompleteVis()"/>
-  <!--TODO check m-no-cache="false" bug (list change trigger does not exist) -->
-  <md-autocomplete ng-if="isShown"
+  <img class="search-button map-button md-whiteframe-1dp" src="images/icons/search-icon.png" ng-click="toggleAutocompleteVis()"/>
+  <md-autocomplete ng-if="isShown" class="address-search"
     md-selected-item="address.selected"
     md-search-text="address.text"
     md-search-text-change="onTextChange()"
     md-items="address in fetchAddress(address.text)"
     md-item-text="address.properties.Adresse"
     md-min-length="4"
+    md-dropdown-position="bottom"
     md-delay="600"
     placeholder="Search for an address..."
     md-menu-class="address-search-template">

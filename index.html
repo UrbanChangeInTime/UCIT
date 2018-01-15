@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Urban Change In Time</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
   <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
   <link rel="stylesheet" href="bower_components/ol3-popup/src/ol3-popup.css" />
-  <link rel="stylesheet" href="bower_components/perfect-scrollbar/css/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="bower_components/gemini-scrollbar/gemini-scrollbar.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -28,9 +28,11 @@
   <link rel="stylesheet" href="styles/ol3gm.css">
   <link rel="stylesheet" href="styles/ol.css">
   <!-- endbuild -->
+
+  <base href="/">
 </head>
 <body ng-app="ucitIIApp">
-<div ng-view="" class="full"></div>
+<div ng-view class="full"></div>
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -49,9 +51,7 @@
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
 <script src="bower_components/ol3-popup/src/ol3-popup.js"></script>
-<script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-<script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
-<script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="bower_components/gemini-scrollbar/index.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -63,7 +63,6 @@
 <script src="scripts/controllers/feedbackController.js"></script>
 
 <script src="scripts/directives/languageSwitcher.js"></script>
-<script src="scripts/directives/myDraggableDirective.js"></script>
 <script src="scripts/directives/addressAutocompleteDirective.js"></script>
 <script src="scripts/directives/hrefDirective.js"></script>
 <script src="scripts/directives/barColor.js"></script>
@@ -79,5 +78,7 @@
 
 <script src="scripts/conf/translationsConfig.js"></script>
 <!-- endbuild -->
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59de7d89e7e199bf"></script>
 </body>
 </html>

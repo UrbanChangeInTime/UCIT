@@ -18,7 +18,6 @@ angular.module('ucitIIApp').directive('barColor', function ($timeout, $window) {
       function changePositions(timeout){
         percentages = [];
         $timeout(function () {
-          console.log('changing positions...');
           var windowWidthMultiplier = $(window).width();
 
           var ticks = document.getElementsByClassName('rz-tick');

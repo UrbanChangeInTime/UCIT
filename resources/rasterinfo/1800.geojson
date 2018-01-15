@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32633" } },
+"features": [
+{ "type": "Feature", "properties": { "Year_gr": "1800", "Type": "The second military survey (1806-1869)", "Typ": "Franziszeische Landesaufnahme (1806-1869)", "Scale": "1:28.800", "Year": "1800", "Source": "National Archives of Austria (OESTA)", "Quelle": "Österreichisches Staatsarchiv (OeStA)" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 574084.50725223799, 5357986.3590547079 ], [ 619650.25368274609, 5358764.0087845884 ], [ 620331.30161518091, 5326386.5647561057 ], [ 574506.13375076815, 5325608.0315602859 ], [ 574084.50725223799, 5357986.3590547079 ] ] ] } }
+]
+}

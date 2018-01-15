@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32633" } },
+"features": [
+{ "type": "Feature", "properties": { "Year_gr": "1760", "Type": "The first military survey (1763-1787)", "Typ": "Josephinische Landesaufnahme (1763-1787)", "Scale": "1:28.800", "Year": "1760", "Source": "National Archives of Austria (OESTA)", "Quelle": "Österreichisches Staatsarchiv (OeStA)" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 577810.37497980765, 5355245.7387190666 ], [ 620031.11107875162, 5355980.9316527909 ], [ 620682.87294320751, 5325070.0314481761 ], [ 578232.82225597685, 5324334.0457439842 ], [ 577810.37497980765, 5355245.7387190666 ] ] ] } }
+]
+}

@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module('ucitIIApp').controller('mapController', function ($scope, constants, $http, mapService, $log, cfpLoadingBar, $timeout, popupService) {
+angular.module('ucitIIApp').controller('mapController', function ($scope, constants, $http, mapService, cfpLoadingBar, $timeout, popupService) {
 
-  // TODO will controller this be needed at all later on?
   $scope.mode = "polygon";
   var previousFeature;
 
@@ -15,9 +14,6 @@ angular.module('ucitIIApp').controller('mapController', function ($scope, consta
   proj32633.setExtent([166021.4431, 0.0000, 833978.5569, 9329005.1825]);
 
   var styleSelected = new ol.style.Style({
-    //fill: new ol.style.Fill({
-    //  color: 'rgba(255, 255, 0, 0.2)'
-    //})
     stroke: new ol.style.Stroke({
       color: 'rgba(255, 255, 0, 0.5)',
       width: 5
@@ -373,14 +369,14 @@ angular.module('ucitIIApp').controller('mapController', function ($scope, consta
 
   var style = new ol.style.Style({
     fill: new ol.style.Fill({
-      color: 'rgba(255, 255, 255, 0)'
+      color: 'transparent'
     })
   });
 
   var polygonClickLayer = new ol.layer.Vector({
     source: vectorSource,
     visible: true,
-    style: styleSelected
+    style: new ol.style.Style()
   });
 
   var rasterClickLayer = new ol.layer.Vector({
@@ -432,23 +428,21 @@ angular.module('ucitIIApp').controller('mapController', function ($scope, consta
     topWms.updateParams({'LAYERS':years.top});
     bottomWms.updateParams({'LAYERS':years.bottom});
 
-    if (!(years.top == 1700 || years.top == 1800)) {
-      geojsonSource = new ol.source.Vector({
-        url: 'resources/rasterinfo/' + years.top + '.geojson',
-        format: new ol.format.GeoJSON({
-          defaultDataProjection: proj32633,
-          projection: proj32633
-        })
-      });
-      rasterClickLayer.setVisible(true);
-      rasterClickLayer.setSource(geojsonSource);
-    } else {
-      rasterClickLayer.setVisible(false);
-    }
+    geojsonSource = new ol.source.Vector({
+      url: 'resources/rasterinfo/' + years.top + '.geojson',
+      format: new ol.format.GeoJSON({
+        defaultDataProjection: proj32633,
+        projection: proj32633
+      })
+    });
+    rasterClickLayer.setVisible(true);
+    rasterClickLayer.setSource(geojsonSource);
 
     topRasterTileLayer.set('source',topWms);
     topRasterTileLayer.setVisible(true);
     bottomRasterTileLayer.set('source',bottomWms);
+
+    popupService.close();
   });
 
   $scope.$on(constants.polygonYearChangeMessage, function(event, year){
@@ -486,7 +480,11 @@ angular.module('ucitIIApp').controller('mapController', function ($scope, consta
                 var polygonGeometry = new ol.geom.Polygon(results.data.features[0].geometry.coordinates[i]).transform('EPSG:4326', 'EPSG:900913');
 
                 var polygonFeature = new ol.Feature({
-                  style: styleSelected,
+                  style: new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                      color: 'transparent'
+                    })
+                  }),
                   geometry: polygonGeometry
                 });
 
@@ -549,8 +547,24 @@ angular.module('ucitIIApp').controller('mapController', function ($scope, consta
       $scope.mode = 'raster';
       googleLayer.setVisible(false);
       $scope.googleVisible = false;
+
+      if(map.getView().getZoom() > 16){
+        map.setView(new ol.View({
+          center: map.getView().getCenter(),
+          zoom: 16,
+          maxZoom: 16,
+          minZoom: 11
+        }));
+      }
+
     } else {
       $scope.mode = 'polygon';
+      map.setView(new ol.View({
+        center: map.getView().getCenter(),
+        zoom: map.getView().getZoom(),
+        maxZoom: 17,
+        minZoom: 11
+      }));
     }
 
     $scope.$broadcast('rzSliderForceRender');

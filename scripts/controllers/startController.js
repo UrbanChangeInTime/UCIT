@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('ucitIIApp').controller('startController', function ($scope, $translate, $global, constants) {
+angular.module('ucitIIApp').controller('startController', function ($scope, $translate, $global, constants, $location, $window, popupService) {
+  var routeLock = false;
+
   $scope.$global = $global;
   $scope.mapTable = {
     data: $global.mapTableData,
@@ -23,7 +25,8 @@ angular.module('ucitIIApp').controller('startController', function ($scope, $tra
       'MAPS.TABLE.TYPES.4', 'MAPS.TABLE.TYPES.5', 'MAPS.TABLE.TYPES.6',
       'MAPS.TABLE.TYPES.7', 'MAPS.TABLE.TYPES.8', 'MAPS.TABLE.TYPES.9',
       'MAPS.TABLE.TYPES.10', 'MAPS.TABLE.TYPES.11', 'MAPS.TABLE.TYPES.12',
-      'MAPS.TABLE.TYPES.13', 'MAPS.TABLE.TYPES.14', 'MAPS.TABLE.TYPES.15'
+      'MAPS.TABLE.TYPES.13', 'MAPS.TABLE.TYPES.14', 'MAPS.TABLE.TYPES.15',
+      'MAPS.TABLE.TYPES.16', 'MAPS.TABLE.TYPES.17'
     ]).then(function (types) {
       $scope.mapTable.types = [];
       for (var o in types) {
@@ -56,12 +59,35 @@ angular.module('ucitIIApp').controller('startController', function ($scope, $tra
 
   $scope.toggleAbout = function(){
     $scope.aboutVisible = !$scope.aboutVisible;
+
+    if(!$scope.aboutVisible) {
+      $location.search('map', true);
+      routeLock = true;
+    } else {
+      $location.search('map', null).replace();
+      popupService.close();
+    }
   };
+
+  $scope.$on('$routeUpdate', function(evt, next) {
+    $scope.aboutVisible = next.params.map !== true;
+
+    if(!routeLock && $scope.aboutVisible){
+      routeLock = false;
+      $window.history.back();
+    }
+  });
 
 }).directive('about', function () {
   return {
     restrict: 'E',
     templateUrl: 'views/about.html',
-    controller: 'startController'
+    controller: function($timeout){
+      $timeout(function(){
+        new GeminiScrollbar({
+          element: document.querySelector('#contents')
+        }).create();
+      }, 1000);
+    }
   };
 });

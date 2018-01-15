@@ -10,6 +10,8 @@ angular.module('ucitIIApp').service('feedbackService', function ($http, constant
       } else {
         def.reject();
       }
+    }, function(){
+      def.reject();
     });
 
     return def.promise;
